@@ -1,0 +1,350 @@
+:root {
+      --hcmute-blue: #005596;
+      --hcmute-blue-dark: #092147;
+      --hcmute-blue-light: #0d6efd;
+      --hcmute-red: #dc2626;
+      --sidebar-width: 260px;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      overflow: hidden;
+    }
+    
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(241, 245, 249, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    /* Top Header Bar */
+    .brand-topbar {
+      background: linear-gradient(90deg, #004b87 0%, #005ea6 50%, #004277 100%);
+      box-shadow: 0 4px 20px -2px rgba(0, 43, 91, 0.25);
+      border-bottom: 3.5px solid var(--hcmute-red);
+    }
+    
+    /* Sidebar Navigation Links */
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      color: #475569;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 4px;
+      border-radius: 14px;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    .sidebar-link:hover {
+      color: #0284c7;
+      background-color: rgba(2, 132, 199, 0.08);
+      transform: translateX(3px);
+    }
+    .sidebar-link.active {
+      font-weight: 700;
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%) !important;
+      box-shadow: 0 6px 16px -2px rgba(13, 110, 253, 0.35);
+      transform: translateX(2px);
+    }
+    .sidebar-link svg {
+      margin-right: 12px;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .sidebar-link.active svg {
+      color: #ffffff;
+      stroke: #ffffff;
+    }
+    
+    /* Sidebar Collapsed State */
+    #sidebar-aside.sidebar-collapsed {
+      width: 76px !important;
+    }
+    #sidebar-aside.sidebar-collapsed .sidebar-text,
+    #sidebar-aside.sidebar-collapsed .sidebar-header-title,
+    #sidebar-aside.sidebar-collapsed .sidebar-group-label {
+      display: none !important;
+    }
+    #sidebar-aside.sidebar-collapsed .sidebar-link {
+      justify-content: center;
+      padding: 12px 0;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+    #sidebar-aside.sidebar-collapsed .sidebar-link svg {
+      margin-right: 0;
+    }
+
+        /* Mobile Off-canvas Drawer & Responsive Utilities */
+    @media (max-width: 1023px) {
+      #sidebar-aside {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        z-index: 50 !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+        background-color: #f8fafc !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      #sidebar-aside.mobile-drawer-open {
+        transform: translateX(0) !important;
+      }
+      .content-section {
+        padding: 1.25rem 1rem !important;
+      }
+      .brand-topbar {
+        height: 60px !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      #sidebar-aside {
+        transform: none !important;
+        position: static !important;
+      }
+    }
+
+    /* Main Content Area */
+    #main-content {
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 100%;
+    }
+    
+    /* Base Section Style */
+    .content-section {
+      display: none;
+      padding: 2rem 2.5rem;
+      flex-direction: column;
+      flex: 1;
+      overflow-y: auto;
+      margin: 0;
+      height: 100%;
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .content-section.active-section {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* =======================================================
+       THEME NỀN RIÊNG BIỆT CHO TỪNG TAB (THEO YÊU CẦU CỦA BẠN)
+       ======================================================= */
+    /* 1. Tổng quan: Phong cách Công nghệ & Dữ liệu Khí hậu/Khoa học (Xanh hoàng gia + Viền đỏ điểm xuyết) */
+    #tong-quan {
+      background: radial-gradient(circle at 10% 10%, rgba(13, 110, 253, 0.05) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 90%, rgba(220, 38, 38, 0.04) 0%, transparent 35%),
+                  linear-gradient(135deg, #f0f6fc 0%, #f8fafc 45%, #eaf2fb 100%);
+    }
+    
+    /* 2. Thông tin cơ bản: Phong cách Hồ sơ Chuyên gia (Navy nhẹ nhàng, sang trọng) */
+    #thong-tin-co-ban {
+      background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.06) 0%, transparent 45%),
+                  linear-gradient(135deg, #f8faff 0%, #f1f5f9 50%, #e2eafd 100%);
+    }
+    
+    /* 3. Thông tin bổ sung: Phong cách Đổi mới & Kỹ năng (Emerald - Xanh lá ngọc tươi mát) */
+    #thong-tin-bo-sung {
+      background: radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+                  linear-gradient(135deg, #f0fdf9 0%, #f8fafc 50%, #dcfce7 100%);
+    }
+    
+    /* 4. Quá trình đào tạo: Phong cách Học thuật Viện sĩ (Indigo - Tím học viện tri thức) */
+    #qua-trinh-dao-tao {
+      background: radial-gradient(circle at 85% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+                  linear-gradient(135deg, #f5f3ff 0%, #f8fafc 50%, #ede9fe 100%);
+    }
+    
+    /* 5. Quá trình công tác: Phong cách Lãnh đạo & Doanh nghiệp (Cool Slate - Xám thép hiện đại) */
+    #qua-trinh-cong-tac {
+      background: radial-gradient(circle at 20% 80%, rgba(71, 85, 105, 0.06) 0%, transparent 40%),
+                  linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+    }
+    
+    /* 6. Đề tài tham gia: Phong cách Quỹ Nghiên cứu & Dự án (Warm Amber - Vàng ấm tài trợ) */
+    #de-tai-tham-gia {
+      background: radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+                  linear-gradient(135deg, #fffbeb 0%, #f8fafc 50%, #fef3c7 100%);
+    }
+    
+    /* 7. Công bố khoa học: Phong cách Bài báo & Tạp chí Quốc tế (Sky/Cyan - Xanh biển học thuật) */
+    #cong-bo-khoa-hoc {
+      background: radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.08) 0%, transparent 45%),
+                  linear-gradient(135deg, #ecfeff 0%, #f8fafc 50%, #e0f2fe 100%);
+    }
+    
+    /* 8. Giải thưởng: Phong cách Vinh danh & Huy chương (Rose/Fuchsia - Tím hồng trang trọng) */
+    #giai-thuong {
+      background: radial-gradient(circle at 80% 20%, rgba(217, 70, 239, 0.07) 0%, transparent 40%),
+                  linear-gradient(135deg, #faf5ff 0%, #f8fafc 50%, #fce7f3 100%);
+    }
+    
+    /* 9. Hỗ trợ: Phong cách Hướng dẫn & Dịch vụ (Teal - Xanh mòng két thân thiện) */
+    #ho-tro {
+      background: radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.08) 0%, transparent 45%),
+                  linear-gradient(135deg, #f0fdfa 0%, #f8fafc 50%, #e0f2fe 100%);
+    }
+
+    /* Card styling */
+    .pro-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pro-card:hover {
+      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+    }
+    
+    /* Vertical Title Accent Marker */
+    .title-accent-bar {
+      width: 5px;
+      height: 28px;
+      border-radius: 9999px;
+      margin-right: 14px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* Sub Tabs (Học vị, Học hàm, Bài báo, Seminar...) */
+    .tab-btn {
+      padding: 11px 22px;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 10px 10px 0 0;
+    }
+    .tab-btn:hover {
+      color: #0284c7;
+      background-color: rgba(2, 132, 199, 0.04);
+    }
+    .tab-btn.active {
+      border-bottom-color: #0d6efd !important;
+      color: #0d6efd !important;
+      font-weight: 700 !important;
+      background-color: rgba(13, 110, 253, 0.05);
+    }
+
+    /* Modern Tables */
+    .table-modern thead tr {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .table-modern tbody tr {
+      border-bottom: 1px solid #f1f5f9;
+      background: #ffffff;
+      transition: background-color 0.15s ease;
+    }
+    .table-modern tbody tr:hover {
+      background: #f8fafc;
+    }
+    .table-modern td, .table-modern th {
+      padding: 12px 16px;
+    }
+    
+    /* Toggle Switch */
+    .toggle-checkbox:checked { right: 0; border-color: #0d6efd; }
+    .toggle-checkbox:checked + .toggle-label { background-color: #0d6efd; }
+    .toggle-checkbox { right: 0; z-index: 1; border-color: #cbd5e1; transition: all 0.3s; }
+    .toggle-label { width: 44px; height: 24px; background-color: #cbd5e1; border-radius: 9999px; position: relative; transition: all 0.3s; cursor: pointer; }
+    .toggle-label:after { content: ''; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background-color: white; border-radius: 50%; transition: all 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+    .toggle-checkbox:checked + .toggle-label:after { transform: translateX(20px); background-color: #ffffff; }
+
+    /* Dropdown Menus */
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content { 
+      display: none; 
+      position: absolute; 
+      background-color: #ffffff; 
+      min-width: 190px; 
+      box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.18); 
+      z-index: 50; 
+      border-radius: 14px; 
+      right: 0; 
+      border: 1px solid #e2e8f0; 
+      overflow: hidden;
+      animation: fadeIn 0.15s ease;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a { 
+      color: #334155; 
+      padding: 10px 16px; 
+      text-decoration: none; 
+      display: flex; 
+      align-items: center; 
+      font-size: 13.5px; 
+      font-weight: 500; 
+      cursor: pointer; 
+      transition: background 0.15s;
+    }
+    .dropdown-content a:hover { background-color: #f1f5f9; color: #0d6efd; }
+    
+    .modal-select { 
+      width: 100%; 
+      border: none; 
+      padding: 8px 12px; 
+      font-size: 14px; 
+      outline: none; 
+      background-color: transparent; 
+      cursor: pointer; 
+    }
+    
+    /* Modern Input Group */
+    .input-clean {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 14px;
+      color: #1e293b;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .input-clean:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    }
+    .input-clean:disabled {
+      background-color: #f8fafc;
+      color: #64748b;
+      cursor: not-allowed;
+    }
+body { font-family: 'Times New Roman', serif; font-size: 13pt; line-height: 1.5; } table { width: 100%; border-collapse: collapse; margin-bottom: 15px; } th, td { border: 1px solid black; padding: 6px; } .no-border th, .no-border td { border: none; padding: 4px; }
+body { font-family: 'Times New Roman', serif; font-size: 13pt; line-height: 1.5; } table { width: 100%; border-collapse: collapse; margin-bottom: 15px; } th, td { border: 1px solid black; padding: 6px; } .no-border th, .no-border td { border: none; padding: 4px; }

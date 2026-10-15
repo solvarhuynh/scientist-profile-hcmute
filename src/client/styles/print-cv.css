@@ -1,0 +1,32 @@
+' +
+        '@page Section1 { size: 595.3pt 841.9pt; margin: 56.7pt 56.7pt 56.7pt 56.7pt; mso-header-margin: 35.4pt; mso-footer-margin: 35.4pt; }' +
+        'div.Section1 { page: Section1; }' +
+        '* { font-family: "Times New Roman", Times, serif !important; }' +
+        'body { font-family: "Times New Roman", Times, serif; font-size: 13pt; line-height: 1.4; color: black; margin: 0; padding: 0; }' +
+        'table { border-collapse: collapse; width: 100%; margin-bottom: 12px; }' +
+        'th, td { border: 1px solid black; padding: 5px 6px; font-size: 11pt; vertical-align: top; font-family: "Times New Roman", Times, serif; }' +
+        'table.no-border, table.no-border td, table.no-border th { border: none !important; }' +
+        'h2 { font-size: 15pt; font-weight: bold; text-align: center; margin-top: 15px; margin-bottom: 8px; font-family: "Times New Roman", Times, serif; }' +
+        'h3 { font-size: 12.5pt; font-weight: bold; margin-top: 14px; margin-bottom: 6px; font-family: "Times New Roman", Times, serif; }' +
+      '
+' +
+      '@page Section1 { size: 595.3pt 841.9pt; margin: 56.7pt 56.7pt 56.7pt 56.7pt; mso-header-margin: 35.4pt; mso-footer-margin: 35.4pt; mso-paper-source: 0; }' +
+      'div.Section1 { page: Section1; }' +
+      '* { font-family: "Times New Roman", Times, serif !important; }' +
+      'body { font-family: "Times New Roman", Times, serif !important; font-size: 13pt; line-height: 1.35; color: #000000; }' +
+      'p, div, span, table, td, th, h1, h2, h3, h4, b, i, u, a { font-family: "Times New Roman", Times, serif !important; }' +
+      'table { border-collapse: collapse; width: 100%; margin-bottom: 12pt; }' +
+      'th, td { font-family: "Times New Roman", Times, serif !important; font-size: 11pt; color: #000000; }' +
+      'table[border="1"] td, table[border="1"] th { border: 1px solid #000000 !important; padding: 4.5pt 6pt; }' +
+      'table[border="0"] td, table[border="none"] td { border: none !important; }' +
+      'h2 { font-size: 15pt; font-weight: bold; text-align: center; margin-top: 14pt; margin-bottom: 6pt; }' +
+      'h3 { font-size: 13pt; font-weight: bold; margin-top: 14pt; margin-bottom: 4pt; }' +
+    '
+' +
+      '@page { size: A4 portrait; margin: 15mm 20mm; }' +
+      'body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.35; color: black; margin: 0; padding: 10px; }' +
+      'table { border-collapse: collapse; width: 100%; margin-bottom: 12px; }' +
+      'th, td { border: 1px solid black; padding: 5px 6px; font-size: 11pt; }' +
+      'table[border="none"], table[border="none"] td, table[border="0"] td { border: none !important; }' +
+      '@media print { .no-print { display: none; } }' +
+    '
