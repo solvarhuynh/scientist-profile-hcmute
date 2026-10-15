@@ -249,3 +249,4 @@ export function parseCvFromHtml(html) {
 
   return res;
 }
+

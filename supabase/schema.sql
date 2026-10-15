@@ -271,3 +271,4 @@ CREATE POLICY "Access publications" ON public.publications FOR ALL USING (true);
 CREATE POLICY "Access books" ON public.books FOR ALL USING (true);
 CREATE POLICY "Access awards" ON public.awards FOR ALL USING (true);
 CREATE POLICY "Access admins" ON public.admins FOR ALL USING (true);
+

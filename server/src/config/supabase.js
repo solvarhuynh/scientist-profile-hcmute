@@ -27,3 +27,4 @@ module.exports = {
   supabase,
   isConfigured: () => !!supabase,
 };
+

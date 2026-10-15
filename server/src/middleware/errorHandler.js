@@ -9,3 +9,4 @@ module.exports = (err, req, res, next) => {
     error: process.env.NODE_ENV === 'production' ? undefined : err.stack
   });
 };
+

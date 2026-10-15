@@ -443,3 +443,4 @@ export function exportCvToWord(profile, options = {}) {
 export function printCvToPdf() {
   window.print();
 }
+

@@ -144,3 +144,4 @@ VALUES
     ('b2222222-2222-2222-2222-222222222222', 'Đại học', 'Chính quy', 'Kỹ thuật Điện tử - Viễn thông', 'Trường ĐH Bách Khoa Hà Nội', 'Việt Nam', 2004, 'Thiết kế bộ lọc số thích nghi trên vi xử lý DSP', 1),
     ('b2222222-2222-2222-2222-222222222222', 'Thạc sĩ', 'Chính quy', 'Điện tử và Vi mạch', 'Grenoble INP', 'Pháp', 2007, 'Low-Power CMOS Analog Circuit Design', 2),
     ('b2222222-2222-2222-2222-222222222222', 'Tiến sĩ', 'Chính quy', 'Kỹ thuật Vi điện tử', 'Sorbonne Université', 'Pháp', 2012, 'Ultra-Low Voltage RF Energy Harvesting for IoT Sensor Nodes', 3);
+

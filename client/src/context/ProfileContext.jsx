@@ -175,3 +175,4 @@ export function ProfileProvider({ children }) {
 export function useProfile() {
   return useContext(ProfileContext);
 }
+

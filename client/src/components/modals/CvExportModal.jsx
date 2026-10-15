@@ -119,3 +119,4 @@ export default function CvExportModal({ isOpen, onClose, profile }) {
     </div>
   );
 }
+

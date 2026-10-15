@@ -117,3 +117,4 @@ export default function Navbar({ onOpenExport, onOpenImport, viewMode, setViewMo
     </header>
   );
 }
+

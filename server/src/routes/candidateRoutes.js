@@ -6,3 +6,4 @@ router.get('/', candidateController.getCandidates);
 router.get('/stats', candidateController.getStats);
 
 module.exports = router;
+

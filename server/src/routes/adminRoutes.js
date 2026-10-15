@@ -7,3 +7,4 @@ router.post('/', adminController.addAdmin);
 router.delete('/:email', adminController.removeAdmin);
 
 module.exports = router;
+
