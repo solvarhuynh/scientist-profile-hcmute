@@ -38,3 +38,4 @@ Tài liệu này định hình chiến lược phát triển từ một dự án
   - CI/CD tự động kiểm thử và triển khai (GitHub Actions).
 - **Trí tuệ Nhân tạo (AI CV Parsing & Extraction):**
   - Tích hợp Gemini API hoặc mô hình OCR để tự động đọc mọi file CV tự do (PDF scan, Word bất kỳ) và chuyển đổi thành form chuẩn 7 mục mà không cần dùng đúng file mẫu.
+

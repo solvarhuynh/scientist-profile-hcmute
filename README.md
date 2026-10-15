@@ -1,132 +1,278 @@
-# 🎓 Cổng Thông tin Lý lịch Khoa học HCMUTE
-### Scientific CV & Faculty Management Portal - HCMUTE
-Phiên bản: **2.0.0 (Enterprise Architecture)**
+<div align="center">
 
-Hệ thống quản lý, chuẩn hóa và tổng hợp hồ sơ lý lịch khoa học dành cho Giảng viên, Nghiên cứu sinh và Ban Quản trị / Hội đồng Tuyển dụng Trường Đại học Sư phạm Kỹ thuật TP.HCM. Tuân thủ nghiêm ngặt **Phụ lục III - Thông tư 09/2017/TT-BGDĐT** của Bộ Giáo dục và Đào tạo.
+# 🎓 CỔNG THÔNG TIN LÝ LỊCH KHOA HỌC & QUẢN LÝ GIẢNG VIÊN HCMUTE
+### *HCMUTE Scientific CV & Faculty Management Portal*
 
----
+[![React 18](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.1-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-Express_REST_API-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Supabase](https://img.shields.io/badge/Database-Supabase_PostgreSQL-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS_v3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Standard](https://img.shields.io/badge/Chuẩn-Phụ_lục_III_TT09/2017/TT--BGDĐT-blue)]()
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🌟 Điểm nổi bật của Dự án (Key Features)
-
-1. **Hồ sơ Khoa học Toàn diện (7 Mục Chuẩn Hóa):**
-   - **I. Thông tin cơ bản & Liên hệ:** Họ tên, Ngày sinh, CCCD (12 số), Quê quán, Địa chỉ (Gợi ý tự động OpenStreetMap), Chức danh, Chức vụ.
-   - **II. Thông tin bổ sung:** Tùy chọn 5 nguyện vọng chuyên môn, Bảng Môn học giảng dạy & Bảng Hướng nghiên cứu chuyên sâu.
-   - **III. Quá trình đào tạo:** Học vị Cử nhân / Kỹ sư / Thạc sĩ / Tiến sĩ, tách riêng trường **Hệ đào tạo** (Chính quy, Từ xa, VLVH,...) và **Tên đồ án / Luận văn / Luận án**.
-   - **IV. Quá trình công tác:** Lịch sử công tác từ trước đến nay.
-   - **V. Đề tài NCKH:** Các cấp đề tài (Nhà nước, Bộ, Tỉnh/TP, Cơ sở), chức vụ, kinh phí và xếp loại.
-   - **VI. Công bố khoa học:** Bài báo tạp chí uy tín (ISI/Scopus Q1-Q4, Điểm HĐGSNN), sách giáo trình, đính kèm minh chứng PDF (tối đa 20MB).
-   - **VII. Giải thưởng & Chuyển giao:** Giải thưởng KHCN, Bằng độc quyền sáng chế, Bằng khen.
-
-2. **Chế độ Kép Giảng viên / Quản trị viên (Dual-Portal 1-Click Switcher):**
-   - **Cổng Giảng viên (User):** Quản lý hồ sơ, xem trước A4 trực quan, xuất CV Word/PDF.
-   - **Cổng Quản trị (Admin):** 8 thẻ chỉ số KPI toàn trường, biểu đồ phân bổ học vị & khoa viện, bảng xếp hạng Top công bố, tìm kiếm ứng viên theo 5 bộ lọc chuyên gia.
-
-3. **Động cơ Trích xuất File Mẫu Đa tầng (Dual-Tier Import Engine):**
-   - Đọc và bóc tách dữ liệu 100% chuẩn xác từ cả file **JSON** lẫn file **Word (.docx)**.
-   - Tự động nhận diện khối AltChunk HTML và OpenXML cổ điển, hiển thị modal xem trước & lựa chọn từng mục trước khi ghép (Merge).
-
-4. **Động cơ Xuất CV Đạt chuẩn In ấn:**
-   - Xuất file **Word (.docx)** và **PDF** đồng bộ font chữ **Times New Roman**, căn lề chuẩn trang A4 Phụ lục III.
+*Hệ thống quản lý hồ sơ nhà khoa học, tra cứu giảng viên và xuất lý lịch khoa học chuẩn mẫu Bộ Giáo dục & Đào tạo dành cho Trường Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh.*
 
 ---
 
-## 📁 Cấu trúc Thư mục Dự án (Project Directory Structure)
+</div>
 
-Dự án được tái cấu trúc từ dạng đơn tệp thành mô hình **Modular Clean Architecture**:
+## 🌟 Giới Thiệu Tổng Quan
 
-```text
-d:\khanh\
-├── docs/                        # Tài liệu kỹ thuật, sơ đồ kiến trúc & CSDL
-│   ├── ARCHITECTURE.md          # Sơ đồ kiến trúc tổng thể (Mermaid diagrams)
-│   ├── DATABASE_SCHEMA.md       # Cấu trúc 8 Sheets và quy tắc nghiệp vụ
-│   └── ROADMAP.md               # Lộ trình phát triển cấp Viện - Trường
-│
-├── src/                         # MÃ NGUỒN MODULAR HỆ THỐNG
-│   ├── client/                  # Frontend Web Application
-│   │   ├── assets/              # Tài nguyên tĩnh & file mẫu chuẩn (.docx, .json)
-│   │   ├── styles/              # CSS tách nhỏ theo chức năng
-│   │   │   ├── main.css         # Theme Glassmorphism & giao diện ứng dụng
-│   │   │   └── print-cv.css     # CSS in ấn chuẩn A4 Phụ lục III
-│   │   └── js/                  # JavaScript phân tầng theo chức năng
-│   │       ├── state.js         # Quản lý trạng thái ứng dụng (appData store)
-│   │       ├── router.js        # Điều hướng Tab & Switcher Admin/User
-│   │       ├── api.js           # Universal API Client (hỗ trợ cả GAS & Local REST)
-│   │       ├── services/        # Dịch vụ nghiệp vụ cốt lõi
-│   │       │   ├── cv-import.js # Động cơ trích xuất file mẫu (AltChunk + JSON)
-│   │       │   └── cv-export.js # Động cơ xuất CV Word (.docx) & PDF
-│   │       └── utils/           # Các tiện ích dùng chung
-│   │           ├── helpers.js   # Xử lý chuỗi, dấu tiếng Việt, escape HTML
-│   │           └── formatters.js# Định dạng số điện thoại, CCCD, ngày tháng
-│   │
-│   └── server/                  # Backend Service
-│       ├── gas/                 # Google Apps Script Serverless (Tách module)
-│       │   ├── Main.gs          # Entry point (doGet, routing)
-│       │   ├── Config.gs        # Cấu hình Sheets, Headers và Constant
-│       │   ├── Auth.gs          # Xác thực tài khoản Google & Phân quyền Admin
-│       │   ├── Database.gs      # DAO & xử lý Ghi đè/Thêm mới Google Sheets
-│       │   └── Candidates.gs    # Tổng hợp thống kê KPI & dữ liệu ứng viên
-│       └── node/                # Local Dev Mock Server
-│           ├── mock-db.json     # CSDL mẫu phục vụ phát triển offline
-│           └── server.js        # REST API Server
-│
-├── scripts/                     # Tooling & Tự động hóa
-│   ├── dev-server.js            # Máy chủ phát triển cục bộ (Zero-dependency)
-│   └── build.js                 # Kiểm tra cú pháp và build bundle sản phẩm
-│
-├── tests/                       # Kiểm thử tự động (Unit & Integration)
-│   ├── test-import.js           # Kiểm thử bóc tách file mẫu (.docx & .json)
-│   ├── test-database.js         # Kiểm thử quy tắc ghi đè trên Sheet
-│   └── run-all-tests.js         # Test Runner chạy toàn bộ test suites
-│
-├── package.json                 # Cấu hình dự án npm & scripts
-├── .gitignore                   # Loại trừ file rác và dependencies
-├── Code.gs                      # File Backend Production (sẵn sàng deploy lên GAS)
-├── Index.html                   # File Frontend Production (sẵn sàng deploy lên GAS)
-└── Login.html                   # Giao diện Đăng nhập Production
+**HCMUTE Scientific CV Portal** là giải pháp phần mềm hiện đại được thiết kế nhằm số hóa toàn diện hồ sơ năng lực của đội ngũ giảng viên, nghiên cứu sinh và nhà khoa học. Dự án giải quyết triệt để sự phân mảnh dữ liệu, thay thế hoàn toàn các phương thức lưu trữ thủ công bằng kiến trúc web hiện đại phân lớp:
+
+- ⚡ **Frontend**: Single Page Application (SPA) xây dựng bằng **React 18**, **Vite** siêu tốc và **Tailwind CSS**.
+- 🚀 **Backend**: RESTful API linh hoạt chạy trên **Node.js** & **Express**.
+- 🐘 **Cơ sở dữ liệu**: Đám mây **Supabase (PostgreSQL 15+)** với chính sách bảo mật đa tầng (Row Level Security - RLS).
+- 📑 **Tiêu chuẩn biểu mẫu**: Xuất file Word (`.docx`) và PDF A4 đồng bộ 100% với **Phụ lục III - Thông tư 09/2017/TT-BGDĐT**.
+
+---
+
+## ✨ Tính Năng Nổi Bật
+
+### 1. 🗂️ Quản Lý Đầy Đủ 7 Hạng Mục Lý Lịch Khoa Học
+Hồ sơ được chuẩn hóa thành 7 phân hệ chuyên biệt:
+1. **Thông tin cơ bản**: Họ tên, CCCD, chức vụ, học vị cao nhất, chức danh khoa học (GS/PGS), liên hệ.
+2. **Thông tin bổ sung & Nguyện vọng**: Hình thức hợp tác (thỉnh giảng, nghiên cứu, hội đồng, hướng dẫn NCS), danh mục môn giảng dạy và định hướng nghiên cứu mũi nhọn.
+3. **Quá trình đào tạo chuyên sâu**: 
+   - 📌 **Tách biệt rõ ràng**: Hệ đào tạo (*Chính quy, Văn bằng 2, Từ xa, Vừa làm vừa học, Chất lượng cao*) và Tên đề tài/luận văn tốt nghiệp riêng biệt.
+   - Trình độ ngoại ngữ và cấp độ sử dụng.
+4. **Quá trình công tác**: Mốc thời gian, cơ quan, chức vụ công tác.
+5. **Đề tài & Dự án NCKH**: Quản lý đề tài cấp Nhà nước, cấp Bộ, Tỉnh/Thành phố, cấp Trường và Cơ sở.
+6. **Công bố khoa học & Sách**:
+   - Bài báo khoa học quốc tế (ISI/Scopus) và trong nước (HĐGSNN).
+   - Giáo trình, sách tham khảo và sách chuyên khảo.
+7. **Khen thưởng & Giải thưởng**: Giải thưởng KH&CN, danh hiệu nhà giáo ưu tú các cấp.
+
+### 2. 🖨️ Bộ Sinh Biểu Mẫu Phụ Lục III (CV Export Engine)
+- **Xem trước trực quan (Live A4 Preview)**: Giao diện mô phỏng trang in A4 chuẩn xác từng dòng, canh lề tiêu chuẩn quốc gia.
+- **Xuất Microsoft Word (`.docx`)**: Tự động sinh file Word OpenXML chuẩn desktop, không vỡ định dạng bảng biểu.
+- **In ấn & Lưu PDF**: Tích hợp print stylesheet cho phép lưu file PDF sắc nét từng chi tiết.
+- **Tùy chọn linh hoạt**: Bật/tắt xuất kèm Mục V (Sách/Giáo trình) và Mục VI (Giải thưởng KH&CN).
+
+### 3. 📥 Bộ Bóc Tách Dữ Liệu Thông Minh (CV Import Engine)
+- **Tệp tin JSON**: Độ chính xác tuyệt đối 100%, bảo toàn toàn bộ cấu trúc mảng và quan hệ dữ liệu.
+- **Tệp tin Word (`.docx`)**: Tự động trích xuất nội dung bằng thuật toán phân tích cú pháp biểu mẫu.
+- **Chế độ nhập đa dạng**: Chọn giữa **Hòa trộn (Merge)** hoặc **Ghi đè (Overwrite)**.
+
+### 4. 🛡️ Cổng Quản Trị Viên (Admin Candidate Portal)
+- Dashboard thống kê trực quan số lượng Giáo sư, Phó Giáo sư, Tiến sĩ, Thạc sĩ.
+- Bộ lọc đa tiêu chí: Lọc theo Khoa/Bộ môn, Học vị, Chức danh khoa học.
+- Tìm kiếm tức thời theo từ khóa họ tên, email, lĩnh vực nghiên cứu.
+- Trực tiếp xem và xuất Phụ lục III cho bất kỳ giảng viên nào trong hệ thống.
+- Module phân quyền Admin bảo mật cao.
+
+---
+
+## 🏗️ Kiến Trúc Hệ Thống (Architecture)
+
+```mermaid
+graph TD
+    subgraph Client ["Client Tier (React 18 + Vite)"]
+        UI["SPA Interface (Tailwind CSS)"]
+        State["Profile & Auth Context"]
+        ExEngine["Phụ lục III Export Service"]
+        ImEngine["Smart Import Engine"]
+        UI --> State
+        UI --> ExEngine
+        UI --> ImEngine
+    end
+
+    subgraph Server ["Server Tier (Node.js + Express)"]
+        API["REST API Router (/api)"]
+        AuthMid["JWT & Auth Middleware"]
+        Controllers["Controllers (Profile, Candidate, Admin)"]
+        API --> AuthMid --> Controllers
+    end
+
+    subgraph Database ["Data Tier (Supabase / PostgreSQL)"]
+        Tables[("PostgreSQL Tables (12 tables)")]
+        RLS["Row Level Security Policies"]
+        Tables --> RLS
+    end
+
+    Client -->|HTTP / JSON Requests| Server
+    Client -.->|Direct Query (Optional)| Database
+    Server -->|PostgreSQL Service Client| Database
 ```
 
 ---
 
-## 🚀 Hướng dẫn Cài đặt & Phát triển (Getting Started)
+## 🗄️ Sơ Đồ Cơ Sở Dữ Liệu (Database Schema)
 
-### 1. Yêu cầu Môi trường
-- [Node.js](https://nodejs.org/) phiên bản 16.0 trở lên.
-- Trình duyệt hiện đại (Chrome, Edge, Firefox, Safari).
+Cơ sở dữ liệu được thiết kế tối ưu trên PostgreSQL với 12 bảng thực thể liên kết chặt chẽ:
 
-### 2. Các Lệnh Điều hành Dự án (NPM Scripts)
+```mermaid
+erDiagram
+    PROFILES ||--o| FACULTY_PREFERENCES : has
+    PROFILES ||--o{ TEACHING_SUBJECTS : teaches
+    PROFILES ||--o{ RESEARCH_DIRECTIONS : researches
+    PROFILES ||--o{ DEGREES : holds
+    PROFILES ||--o{ FOREIGN_LANGUAGES : speaks
+    PROFILES ||--o{ WORK_HISTORY : worked
+    PROFILES ||--o{ RESEARCH_PROJECTS : conducts
+    PROFILES ||--o{ PUBLICATIONS : publishes
+    PROFILES ||--o{ BOOKS : authors
+    PROFILES ||--o{ AWARDS : receives
 
+    PROFILES {
+        uuid id PK
+        string email UK
+        string full_name
+        string gender
+        date dob
+        string pob
+        string hometown
+        string department
+        string highest_degree
+        string academic_title
+        string role
+    }
+
+    DEGREES {
+        uuid id PK
+        uuid profile_id FK
+        string bac_hoc
+        string he_dao_tao "Chính quy / VB2 / Từ xa..."
+        string nganh
+        string noi_dao_tao
+        string nuoc_dao_tao
+        int nam_tot_nghiep
+        text ten_de_tai_luan_van "Đồ án / Luận văn riêng"
+    }
+```
+
+---
+
+## 📁 Cấu Trúc Thư Mục Dự Án
+
+```
+scientist-profile-hcmute/
+├── client/                     # Ứng dụng Frontend (React + Vite)
+│   ├── public/                 # Static assets (Favicon, Logo)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── admin/          # Admin Dashboard & Candidate Directory
+│   │   │   ├── layout/         # Header, Navbar, Sidebar
+│   │   │   ├── modals/         # Export Phụ lục III, Import, Phân quyền
+│   │   │   └── sections/       # 7 Phân hệ hồ sơ khoa học
+│   │   ├── context/            # AuthContext, ProfileContext
+│   │   ├── services/           # API client, Supabase, Word/PDF engines
+│   │   ├── App.jsx             # Root component
+│   │   └── main.jsx            # Entry point
+│   ├── index.html
+│   ├── vite.config.js
+│   └── tailwind.config.js
+│
+├── server/                     # Ứng dụng Backend API (Node.js + Express)
+│   ├── src/
+│   │   ├── config/             # Kết nối Supabase & Cấu hình môi trường
+│   │   ├── controllers/        # Điều khiển nghiệp vụ (Auth, Profile, Admin)
+│   │   ├── middleware/         # Xác thực JWT, Kiểm tra quyền hạn, Xử lý lỗi
+│   │   ├── routes/             # Định tuyến REST endpoints
+│   │   ├── services/           # Mock service fallback
+│   │   ├── app.js
+│   │   └── server.js
+│   ├── package.json
+│   └── .env.example
+│
+├── supabase/                   # Cấu trúc Database Supabase
+│   ├── schema.sql              # PostgreSQL DDL (12 bảng, Indexes, RLS, Triggers)
+│   └── seed.sql                # Dữ liệu mẫu giảng viên HCMUTE chuẩn thực tế
+│
+├── docs/                       # Tài liệu thiết kế & File mẫu
+│   ├── ARCHITECTURE.md         # Tài liệu kiến trúc chuyên sâu
+│   ├── DATABASE_SCHEMA.md      # Chi tiết kiểu dữ liệu & quan hệ
+│   └── mau-xuat-file.pdf       # Mẫu Phụ lục III chuẩn đối chiếu
+│
+├── .env.example                # File mẫu cấu hình môi trường
+├── .gitignore                  # Loại trừ thư mục rác và dependencies
+├── package.json                # Quản lý script monorepo toàn dự án
+└── README.md                   # Tài liệu hướng dẫn sử dụng
+```
+
+---
+
+## 🚀 Hướng Dẫn Cài Đặt & Khởi Chạy
+
+### 1. Yêu cầu môi trường
+- **Node.js**: Phiên bản 18.x trở lên.
+- **npm**: Phiên bản 9.x hoặc mới hơn (hoặc `yarn` / `pnpm`).
+- Tài khoản [Supabase](https://supabase.com) (Miễn phí).
+
+### 2. Cài đặt toàn bộ dependencies
+Chạy lệnh sau tại thư mục gốc để tự động cài đặt gói cho cả Root, Server và Client:
 ```bash
-# 1. Khởi chạy Máy chủ Phát triển Cục bộ (Local Dev Server):
-npm run dev
-# -> Mở trình duyệt tại http://localhost:3000 để chạy ứng dụng ngay lập tức mà không cần mạng internet.
-
-# 2. Kiểm thử và Xác minh Toàn bộ Hệ thống:
-npm test
-# -> Tự động chạy tất cả các kịch bản kiểm thử (Test Cases) về trích xuất file và CSDL.
-
-# 3. Build & Kiểm tra Mã nguồn:
-npm run build
-# -> Xác minh cú pháp toàn bộ file .gs và client .js, kiểm tra dung lượng bundle.
+npm run install:all
 ```
 
+### 3. Thiết lập biến môi trường
+Tạo file `.env` tại thư mục gốc hoặc trong từng thư mục con (`server/.env`, `client/.env`):
+```env
+# Server
+PORT=5000
+NODE_ENV=development
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+JWT_SECRET=your_jwt_secret_key_here
+
+# Client
+VITE_API_BASE_URL=http://localhost:5000/api
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+> **Mẹo hữu ích**: Nếu chưa cấu hình Supabase, hệ thống sẽ tự động kích hoạt **Chế độ Mock Demo**, cho phép bạn trải nghiệm đầy đủ tính năng CRUD và tìm kiếm ngay lập tức!
+
+### 4. Khởi tạo Cơ sở dữ liệu Supabase
+1. Đăng nhập vào [Supabase Dashboard](https://supabase.com/dashboard).
+2. Tạo dự án mới (New Project).
+3. Vào tab **SQL Editor**, mở và chạy nội dung file `supabase/schema.sql`.
+4. Tiếp tục mở và chạy file `supabase/seed.sql` để nạp dữ liệu giảng viên mẫu.
+
+### 5. Chạy ứng dụng ở môi trường phát triển
+Chỉ với 1 dòng lệnh duy nhất, cả Backend API và Frontend Vite sẽ khởi động đồng thời:
+```bash
+npm run dev
+```
+
+- **Frontend Application**: [http://localhost:5173](http://localhost:5173)
+- **Backend REST API**: [http://localhost:5000/api](http://localhost:5000/api)
+- **API Health Check**: [http://localhost:5000/api/health](http://localhost:5000/api/health)
+
 ---
 
-## 🌐 Hướng dẫn Triển khai Lên Google Apps Script (Production)
+## 🌐 Hướng Dẫn Triển Khai Lên Mạng (Production Deployment)
 
-Hệ thống được thiết kế duy trì **tính tương thích ngược 100%**:
-1. Đăng nhập vào trang quản trị [Google Apps Script](https://script.google.com/).
-2. Sao chép nội dung file [`Code.gs`](file:///d:/khanh/Code.gs) vào trình soạn thảo code server.
-3. Sao chép nội dung file [`Index.html`](file:///d:/khanh/Index.html) và [`Login.html`](file:///d:/khanh/Login.html) vào các file HTML tương ứng.
-4. Nhấn **Deploy (Triển khai)** -> **New deployment (Triển khai mới)**:
-   - Chọn loại: **Web app**.
-   - Execute as: **Me (Tôi)**.
-   - Who has access: **Anyone (Bất kỳ ai)** hoặc **Tất cả thành viên trong tổ chức HCMUTE**.
-5. Nhận URL Web App chính thức để đưa vào sử dụng thực tế.
+### 1. Triển khai Frontend (Vercel / Netlify / Cloudflare Pages)
+- **Root Directory**: `client`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Environment Variables**: Thiết lập `VITE_API_BASE_URL` trỏ về địa chỉ Backend của bạn.
+
+### 2. Triển khai Backend (Render / Railway / Fly.io)
+- **Root Directory**: `server`
+- **Build Command**: `npm install`
+- **Start Command**: `npm start`
+- **Environment Variables**: Cung cấp `PORT`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `JWT_SECRET`.
 
 ---
 
-## 📈 Định hướng Nâng cấp Thực tế (Strategic Roadmap)
+## 👥 Tài Khoản Trải Nghiệm Mẫu
 
-1. **Giai đoạn tiếp theo (Database mở rộng):** Kết nối thêm adapter PostgreSQL / Supabase để quản lý hàng nghìn giảng viên song song với Google Sheets.
-2. **Giai đoạn AI (Trích xuất thông minh):** Tích hợp Gemini Flash API để đọc hiểu mọi file Word/PDF tự do và tự động điền vào form 7 mục.
-3. **Đóng gói Docker:** Triển khai một lệnh `docker-compose up` chạy độc lập trên máy chủ nội bộ của Trường.
+| Vai Trò | Email Đăng Nhập | Quyền Hạn |
+| :--- | :--- | :--- |
+| **Quản trị viên (Admin)** | `admin@hcmute.edu.vn` | Toàn quyền tra cứu, tìm kiếm, xuất CV tất cả giảng viên, phân quyền Admin |
+| **Giáo sư / Nhà khoa học** | `annv@hcmute.edu.vn` | Chỉnh sửa hồ sơ cá nhân, xuất Phụ lục III, nhập liệu JSON/DOCX |
+| **Phó Giáo sư** | `maitt@hcmute.edu.vn` | Chỉnh sửa hồ sơ cá nhân, xuất Phụ lục III |
+
+---
+
+## 📄 Bản Quyền & Giấy Phép
+Dự án được phân phối dưới giấy phép **MIT License**. Mọi đóng góp phát triển cho cộng đồng nghiên cứu khoa học HCMUTE đều được hoan nghênh.
+
+---
+
+<div align="center">
+  <b>Phát triển với ❤️ vì sự phát triển Khoa học & Đào tạo HCMUTE</b>
+</div>

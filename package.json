@@ -1,25 +1,32 @@
 {
   "name": "hcmute-scientific-cv-portal",
-  "version": "2.0.0",
-  "description": "Cổng Thông tin Lý lịch Khoa học & Quản lý Giảng viên HCMUTE (Scientific CV & Faculty Management Portal)",
-  "main": "Code.gs",
+  "version": "3.0.0",
+  "description": "Cổng Thông tin Lý lịch Khoa học & Quản lý Giảng viên HCMUTE (Modern React + Vite + Node.js + Supabase)",
   "scripts": {
-    "dev": "node scripts/dev-server.js",
-    "build": "node scripts/build.js",
-    "test": "node tests/run-all-tests.js",
-    "lint": "node -e \"console.log('No linting errors found.')\""
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "client:dev": "npm --prefix client run dev",
+    "server:dev": "npm --prefix server run dev",
+    "client:build": "npm --prefix client run build",
+    "server:start": "npm --prefix server run start",
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server run start"
   },
   "keywords": [
     "hcmute",
     "scientific-cv",
-    "google-apps-script",
-    "faculty-management",
-    "cv-export",
-    "resume-builder"
+    "react",
+    "vite",
+    "nodejs",
+    "express",
+    "supabase",
+    "postgresql",
+    "tailwind-css",
+    "phu-luc-iii"
   ],
-  "author": "HCMUTE IT & Faculty Team",
+  "author": "HCMUTE Development Team",
   "license": "MIT",
-  "engines": {
-    "node": ">=16.0.0"
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
